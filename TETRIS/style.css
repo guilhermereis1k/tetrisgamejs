@@ -1,0 +1,30 @@
+*,
+*::after,
+*::before {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-size: 62.5%;
+    box-sizing: inherit;
+}
+
+body{
+    background-color: #000;
+}
+
+#tela {
+    outline: 1px solid #fff;
+    margin-top: 20rem;
+    position: absolute;
+    z-index: 2;
+}
+
+#tela2 {
+    outline: 1px solid #fff;
+    margin-top: 20rem;
+    position: absolute;
+    z-index: 1000;
+}
