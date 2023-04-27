@@ -28,3 +28,15 @@ body{
     position: absolute;
     z-index: 1000;
 }
+
+#tela3 {
+    outline: 1px solid #fff;
+    margin-top: 20rem;
+    position: absolute;
+    z-index: 10003;
+}
+
+#imagem {
+    display: none;
+}
+
