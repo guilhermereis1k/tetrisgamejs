@@ -36,9 +36,11 @@ function move () {
             obj[i].y4 = obj[i].y4 + 40;
             obj[i].draw();
             checksCollision();
-            console.log(obj[i].y,obj[i].y2,obj[i].y3,obj[i].y4)
             keyPressed = false;
         }
+        if (event.key === "z" ) {
+            going = false;
+        }   
         if (event.key === "ArrowUp") {
             obj[i].rotate();
         }

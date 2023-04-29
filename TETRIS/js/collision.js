@@ -23,7 +23,6 @@ function checksBorderCollision () {
 // Função que checa a colisão
 
 function checksCollision () {
-    console.log(collisionY,collisionXl,collisionXr,collisionYg)
     collisionXr = false;
     collisionXl = false;
     checksBorderCollision();

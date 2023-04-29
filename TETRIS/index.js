@@ -18,6 +18,7 @@ ctx2.height = this.height;
 
 ctx2.willReadFrequently = true;
 
+let going = true;
 let x = 0;
 let y = 0;
 let cor = 'red';
@@ -91,8 +92,6 @@ function stopMoving() {
 };
 
 
-
-
 function dropping () {
 
     const startDropping = setInterval(function() { drop()}, 200);
@@ -100,8 +99,7 @@ function dropping () {
     // MEXER DURANTE A DESCIDA
     function drop () {
         
-        checksCollision();
-            if (obj[i].y <= 720 || obj[i].y2 <= 720 || obj[i].y3 <= 720 || obj[i].y4 <= 720 ) {
+            if (obj[i].y <= 720 || obj[i].y2 <= 720 || obj[i].y3 <= 720 || obj[i].y4 <= 720 || going == true) {
                 if (collisionY === false && collisionYg === false) {
                     ctx.clearRect(obj[i].x, obj[i].y, canvas.width, canvas.height);
                     ctx.beginPath();
@@ -133,16 +131,26 @@ function dropping () {
                     obj[i].write();
                     // Enviando valor para colunas
                     for(let cols = 0; cols < obj[i].shapeNum.length; cols++){
+                        if (obj[i].shapeNum[cols] == 0){
+                            console.log(obj[i].shapeNum[cols])
+                        }
+                        else {
                         colsFull[col - cols - 1] += obj[i].shapeNum[cols];
+                        }
                     }
                     allObj.push(obj[i]);
+                    console.log(rotateIndex);
                     obj[i] = [];
                     stopMoving();
                     clearInterval(startDropping);
                     checksCompletion();
                     addNewShape(40,40);
+                    console.log(colsFull)
                     i++;
-                    dropping();
+                    if (going == true) {
+                        dropping();
+                    }
+                    
 
             }
     };
@@ -153,15 +161,14 @@ function dropping () {
         let colY = col * 40 - 40;
 
         for(let x = 0; x <= colsFull.length - 1; x++) {
-            if(colsFull[x].length === 10){
+            if(colsFull[x].length > 10){
                 let toBeErased = x;
                 toBeErased = toBeErased * 40;
                 elementX = 800 - toBeErased;
                 elementX = elementX + 40;
                 colsFull[x] = '';
+                
                 hasBeenErased++;
-                console.log(x)
-                console.log(x == 19 && hasBeenErased > 0)
                     let imgData = ctx2.getImageData(0, 0, 400, toBeErased);
                     ctx2.putImageData(imgData, 0, 40, 0, 0, 400, 800);
             }
@@ -169,12 +176,13 @@ function dropping () {
                 for(let erasing = 0; erasing < hasBeenErased; erasing++){
                     clearArrayLine();
                     eraseLine();
-                    console.log(colsFull)
                 }   
             }
         }
         
         function clearArrayLine () {
+            console.log("clearing")
+            console.log(colsFull[x])
             for (let g = 19; g > -1; g--) {
                 let indexCols = colsFull[g];
                 if(colsFull[g].includes('1') === true){

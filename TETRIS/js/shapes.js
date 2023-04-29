@@ -26,10 +26,10 @@ class ShapeBASE{
         ctx.beginPath();
         ctx.fillStyle = cor;
         ctx.strokeStyle = cor;
-        ctx.rect(this.x, this.y, 40, 40);
-        ctx.rect(this.x2, this.y2, 40, 40);
-        ctx.rect(this.x3, this.y3, 40, 40);
-        ctx.rect(this.x4, this.y4, 40, 40);
+        ctx.fillrect(this.x, this.y, 40, 40);
+        ctx.fillrect(this.x2, this.y2, 40, 40);
+        ctx.fillrect(this.x3, this.y3, 40, 40);
+        ctx.fillrect(this.x4, this.y4, 40, 40);
         ctx.stroke();
         ctx.closePath();
     }
@@ -174,6 +174,7 @@ class ShapeL{
                 this.shapeNum = [];
                 this.shapeNum[0] = 1;
                 this.shapeNum[1] = 111;
+                this.shapeNum[2] = 0;
                 obj[i].draw();
                 rotateIndex++; 
                 }
@@ -224,7 +225,7 @@ class ShapeL{
                 this.shapeNum = [];
                 this.shapeNum[0] = 111;
                 this.shapeNum[1] = 1;
-                this.shapeNum[2] = [];
+                this.shapeNum[2] = 0;
                 obj[i].draw();
                 rotateIndex++;
             }
@@ -376,6 +377,9 @@ class ShapeI{
             else {
                 this.shapeNum = [];
                 this.shapeNum[0] = 1111;
+                this.shapeNum[1] = 0;
+                this.shapeNum[2] = 0;
+                this.shapeNum[3] = 0;
                 obj[i].draw();
                 rotateIndex++; 
                 }
@@ -440,10 +444,10 @@ class ShapeI{
 
 class ShapeLreverse{
     constructor(x,y) {
-        this.x = x;
-        this.x2 = x;
-        this.x3 = x;
-        this.x4 = x - 40;
+        this.x = x + 40;
+        this.x2 = x + 40;
+        this.x3 = x + 40;
+        this.x4 = x;
 
         this.y = y;
         this.y2 = y + 40;
@@ -502,6 +506,7 @@ class ShapeLreverse{
                 this.shapeNum = [];
                 this.shapeNum[0] = 111;
                 this.shapeNum[1] = 1;
+                this.shapeNum[2] = 0;
                 obj[i].draw();
                 rotateIndex++; 
                 }
@@ -526,7 +531,7 @@ class ShapeLreverse{
                 this.shapeNum = [];
                 this.shapeNum[0] = 1;
                 this.shapeNum[1] = 1;
-                this.shapeNum[1] = 11;
+                this.shapeNum[2] = 11;
                 obj[i].draw();
                 rotateIndex++; 
                 }
@@ -551,6 +556,7 @@ class ShapeLreverse{
                 this.shapeNum = [];
                 this.shapeNum[0] = 1;
                 this.shapeNum[1] = 111;
+                this.shapeNum[2] = 0;
                 obj[i].draw();
                 rotateIndex++; 
                 }
@@ -707,7 +713,6 @@ class ShapeT{
             break;
 
             case 2:
-                console.log("virou")
             this.x = this.x - 40;
             this.x2 = this.x2;
             this.x3 = this.x3 - 40;
@@ -725,7 +730,7 @@ class ShapeT{
             else {
                 this.shapeNum = [];
                 this.shapeNum[0] = 1;
-                this.shapeNum[1] = 111;
+                this.shapeNum[1] = 11;
                 this.shapeNum[2] = 1;
                 obj[i].draw();
                 rotateIndex++; 
@@ -785,7 +790,6 @@ class ShapeT{
     }
 
     unrotate() {
-        console.log(this.x,this.x2,this.x3,this.x4, collisionBorder)
         switch (rotateIndex){
             case 1: 
             this.x = this.x - 40;
@@ -800,7 +804,6 @@ class ShapeT{
             break;
 
             case 2: 
-            console.log("desvirou")
             this.x = this.x + 40;
             this.x2 = this.x2;
             this.x3 = this.x3 + 40;
@@ -900,8 +903,9 @@ class ShapeSreverse{
             
             else {
                 this.shapeNum = [];
-                this.shapeNum[0] = 11;
+                this.shapeNum[0] = 1;
                 this.shapeNum[1] = 11;
+                this.shapeNum[2] = 1;
                 obj[i].draw();
                 rotateIndex++; 
                 }
@@ -924,9 +928,8 @@ class ShapeSreverse{
             
             else {
                 this.shapeNum = [];
-                this.shapeNum[0] = 1;
+                this.shapeNum[0] = 11;
                 this.shapeNum[1] = 11;
-                this.shapeNum[1] = 1;
                 obj[i].draw();
                 rotateIndex = 1; 
                 }
@@ -978,6 +981,7 @@ class ShapeS{
         this.shapeNum = [];
         this.shapeNum[0] = 11;
         this.shapeNum[1] = 11;
+        this.shapeNum[2] = 0;
     }
 
     draw() {
@@ -1052,6 +1056,7 @@ class ShapeS{
                 this.shapeNum = [];
                 this.shapeNum[0] = 11;
                 this.shapeNum[1] = 11;
+                this.shapeNum[2] = 0;
                 obj[i].draw();
                 rotateIndex = 1; 
                 }
